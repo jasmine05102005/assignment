@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RedTune - Music for You</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="left">
+      <i class="fa-solid fa-music logo"></i>
+      <span class="brand-name">RedTune</span>
+      <input type="text" placeholder="Search your vibe..." />
+    </div>
+    <nav class="right">
+      <a href="#">Premium</a>
+      <a href="#">Support</a>
+      <a href="#">Download</a>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+      <button class="login">Log in</button>
+    </nav>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="nav-icon active" title="Home"><i class="fa-solid fa-house"></i></div>
+      <div class="nav-icon" title="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="nav-icon" title="Library"><i class="fa-solid fa-book"></i></div>
+      <div class="nav-icon" title="Create Playlist"><i class="fa-solid fa-plus"></i></div>
+      <div class="nav-icon" title="Liked Songs"><i class="fa-solid fa-heart"></i></div>
+      <div class="nav-icon" title="Your Episodes"><i class="fa-solid fa-headphones"></i></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <h2>🔥 Trending Now</h2>
+      <div class="scroll-wrapper">
+        <button class="scroll-btn left" onclick="scrollLeft('trendingRow')"><i class="fa-solid fa-angle-left"></i></button>
+        <div class="scroll-row" id="trendingRow">
+          <div class="card">Shape of You<br><small>Ed Sheeran</small></div>
+          <div class="card">Bones<br><small>Imagine Dragons</small></div>
+          <div class="card">Closer<br><small>The Chainsmokers</small></div>
+          <div class="card">Night Changes<br><small>One Direction</small></div>
+          <div class="card">Watermelon Sugar<br><small>Harry Styles</small></div>
+          <div class="card">Heat Waves<br><small>Glass Animals</small></div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollRight('trendingRow')"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Script -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    }
+
+    function scrollLeft(id) {
+      document.getElementById(id).scrollLeft -= 300;
+    }
+
+    function scrollRight(id) {
+      document.getElementById(id).scrollLeft += 300;
+    }
+
+    // Load saved theme
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    });
+
+    // Sidebar active toggle
+    document.querySelectorAll('.nav-icon').forEach(icon => {
+      icon.addEventListener('click', () => {
+        document.querySelectorAll('.nav-icon').forEach(i => i.classList.remove('active'));
+        icon.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
