@@ -1,0 +1,71 @@
+/* Global Body Style */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #c9d6ff, #e2e2e2); /* Soft bluish gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login Box Styling */
+.login-box {
+    background-color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(60, 60, 60, 0.1);
+    width: 360px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 14px 0;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #5b5fef;
+    box-shadow: 0 0 6px rgba(91, 95, 239, 0.3);
+    outline: none;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #5b5fef, #3a47d5);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #3a47d5, #283593);
+    transform: translateY(-2px);
+}
+
+/* Message Output */
+#message {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    font-size: 15px;
+}
